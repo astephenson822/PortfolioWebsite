@@ -8,7 +8,7 @@ export default function My_Work() {
     <div className="presentation-grid">
       <div className="presentation-card">
         <h2>Unity Game Development</h2>
-        <img src="./images/img-1.jpeg" alt="Unity Game Development" />
+        <img src="/images/img-1.jpeg" alt="Unity Game Development" />
       </div>
       <div className="presentation-card">
         <h2>EcoCAR</h2>

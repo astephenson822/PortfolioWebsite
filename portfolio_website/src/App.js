@@ -1,9 +1,8 @@
 import React from 'react';
 import Navbar from "./components/Navbar";
-import { HashRouter as Router, Routes, Route } from 'react-router-dom'; // ✅ use HashRouter!
+import { Routes, Route } from 'react-router-dom';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import './App.css';
-
 import Home from './components/pages/Home';
 import About_Me from './components/pages/About_Me';
 import Education from './components/pages/Education';
@@ -13,7 +12,7 @@ import Success from './components/pages/Success';
 
 function App() {
   return (
-    <Router>  {/* ✅ wrap everything in HashRouter */}
+    <>
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
@@ -24,7 +23,7 @@ function App() {
         <Route path="/resume" element={<Resume />} />
         <Route path="/success" element={<Success />} />
       </Routes>
-    </Router>
+    </>
   );
 }
 
