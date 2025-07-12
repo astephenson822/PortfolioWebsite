@@ -1,6 +1,6 @@
 import React from 'react';
 import Navbar from "./components/Navbar";
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import './App.css';
 import Home from './components/pages/Home';
@@ -12,7 +12,7 @@ import Success from './components/pages/Success';
 
 function App() {
   return (
-    <BrowserRouter basename="/PortfolioWebsite">
+    <>
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
@@ -23,7 +23,7 @@ function App() {
         <Route path="/resume" element={<Resume />} />
         <Route path="/success" element={<Success />} />
       </Routes>
-    </BrowserRouter>
+    </>
   );
 }
 
