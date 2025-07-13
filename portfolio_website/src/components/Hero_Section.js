@@ -5,7 +5,7 @@ import './Hero_Section.css'
 function HeroSection() {
   return (
     <div className='hero-container'>
-        <video autoPlay loop muted>
+        <video autoPlay loop muted playsInline>
           <source src={`${process.env.PUBLIC_URL}/videos/background.mp4`} type="video/mp4" />
           Your browser does not support the video tag.
         </video>
