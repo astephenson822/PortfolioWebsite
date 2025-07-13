@@ -5,7 +5,10 @@ import './Hero_Section.css'
 function HeroSection() {
   return (
     <div className='hero-container'>
-        {<video src="${process.env.PUBLIC_URL}/videos/background.mp4" autoPlay loop muted />}
+        <video autoPlay loop muted>
+          <source src={`${process.env.PUBLIC_URL}/videos/background.mp4`} type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
         <h1>Welcome to my Portfolio!</h1>
         <div className='hero-btns'>
             <Button className='btns' buttonStyle='btn--outline' buttonSize='btn--large' to='/resume'>My Resume</Button>
