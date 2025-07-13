@@ -10,57 +10,39 @@ function Cards() {
             <div className="cards__wrapper">
                 <ul className="cards__items">
                     <CardItem 
-                    src="images/test.png"
-                    text="Pillar"
-                    label='Pillar'
-                    path='/about_me'/>
+                    src={`${process.env.PUBLIC_URL}/images/COLSA.png`}
+                    text="COLSA Corporation Data Science Intern"
+                    label='Work Experience'
+                    path='/about_me'
+                    customClass="zoomed-out"/>
                     <CardItem 
-                    src="images/test.png"
-                    text="House"
-                    label='Road'
-                    path='/about_me'/>
-                </ul>
-                <ul className="cards__items">
-                    <CardItem 
-                    src="images/test.png"
-                    text="house"
-                    label='Bridge'
-                    path='/about_me'/>
-                    <CardItem 
-                    src="images/test.JPG"
-                    text="house"
-                    label='Banana'
+                    src={`${process.env.PUBLIC_URL}/images/projects.png`}
+                    text="Unity, Reinforcement Learning, etc"
+                    label='Projects'
                     path='/about_me'/>
                 </ul>
                 <ul className="cards__items">
                     <CardItem 
-                    src="images/test.jpeg"
-                    text="house"
-                    label='Adventure'
+                    src={`${process.env.PUBLIC_URL}/images/bama.png`}
+                    text="The University of Alabama"
+                    label='Education'
                     path='/about_me'/>
                     <CardItem 
-                    src="images/test.jpeg"
-                    text="house"
-                    label='Adventure'
-                    path='/about_me'/>
-                </ul>
-                <ul className="cards__items">
-                    <CardItem 
-                    src="images/test.jpeg"
-                    text="house"
-                    label='Adventure'
-                    path='/about_me'/>
-                    <CardItem 
-                    src="images/test.jpeg"
-                    text="house"
-                    label='Adventure'
+                    src={`${process.env.PUBLIC_URL}/images/courses.png`}
+                    text="Class Names and Content Covered"
+                    label='Courses'
                     path='/about_me'/>
                 </ul>
                 <ul className="cards__items">
                     <CardItem 
-                    src="images/test.jpeg"
-                    text="house"
-                    label='Adventure'
+                    src={`${process.env.PUBLIC_URL}/images/skills.png`}
+                    text="Technical, hard, and soft"
+                    label='Skills'
+                    path='/about_me'/>
+                    <CardItem 
+                    src={`${process.env.PUBLIC_URL}/images/clubs.png`}
+                    text="Clubs and Awards"
+                    label='Involvement'
                     path='/about_me'/>
                 </ul>
             </div>

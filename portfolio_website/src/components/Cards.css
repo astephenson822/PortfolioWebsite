@@ -109,6 +109,13 @@ h1 {
   line-height: 24px;
 }
 
+.cards__item__pic-wrap.zoomed-out .cards__item__img {
+  object-fit: contain;
+  background: #fff; 
+  padding: 10px;
+}
+
+
 @media only screen and (min-width: 1200px) {
   .content__blog__container {
     width: 84%;
