@@ -66,19 +66,17 @@
   flex-direction: column;
   align-items: center;
   padding: 40px 20px;
-  background-color: #f0f0f0; /* Light background */
-  min-height: 100vh;
+  min-height: 100vh;  /* full viewport height */
+  background-color: #f0f0f0;
 }
 
 .pdf-viewer {
   width: 100%;
-  max-width: 800px;
-  height: 80vh;
-  border: 2px solid #ccc;
-  border-radius: 8px;
-  overflow: hidden;
+  max-width: 1200px;
+  flex-grow: 1;
+  height: 90vh;  /* try 90% of viewport height */
+  border: none;
 }
-
 .pdf-viewer iframe {
   width: 100%;
   height: 100%;

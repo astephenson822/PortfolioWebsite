@@ -9,7 +9,7 @@ export default function Resume() {
           src={`${process.env.PUBLIC_URL}/Resume.pdf`}
           title="Resume"
           width="100%"
-          height="1000px"
+          height="100%"
         />
       </div>
     </div>
