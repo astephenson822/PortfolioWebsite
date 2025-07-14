@@ -89,7 +89,7 @@
   .pdf-viewer {
     overflow: hidden;
     position: relative;
-    height: 100vh;
+    height: 150vh;
   }
 
   .pdf-viewer iframe {
@@ -99,7 +99,7 @@
     transform: translateX(-50%) scale(0.5);
     transform-origin: top center;
     width: 200%;
-    height: 80%;
+    height: 100%;
   }
 }
 
