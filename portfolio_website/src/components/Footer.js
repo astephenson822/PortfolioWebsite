@@ -49,7 +49,13 @@ function Footer() {
                 </div>
                 <div className='footer-link-items'>
                     <h2>Social Media</h2>
-                    <Link to='/'> LinkedIn</Link>
+                    <a
+                        href='https://www.linkedin.com/in/a-m-stephenson/'
+                        target='_blank'
+                        rel='noopener noreferrer'
+                        >
+                        LinkedIn
+                    </a>
                     <Link to='/'> Instagram</Link>
                     <Link to='/'> Facebook</Link>
                     <Link to='/'> X</Link>
@@ -65,8 +71,16 @@ function Footer() {
                 </div>
                 <small className='website-rights'>Senior Portfolio</small>
                 <div className='social-icons'>
-                    <Link className='social-icon-link LinkedIn' to='/' target='_blank' aria-label='LinkedIn'>
-                    <i className='fab fa-linkedin'/></Link>
+                    <a
+                        className='social-icon-link LinkedIn'
+                        href='https://www.linkedin.com/in/a-m-stephenson/'
+                        target='_blank'
+                        rel='noopener noreferrer'
+                        aria-label='LinkedIn'
+                        >
+                        <i className='fab fa-linkedin' />
+                    </a>
+
                     <Link className='social-icon-link instagram' to='/' target='_blank' aria-label='Instagram'>
                     <i className='fab fa-instagram'/></Link>
                     <Link className='social-icon-link facebook' to='/' target='_blank' aria-label='Facebook'>

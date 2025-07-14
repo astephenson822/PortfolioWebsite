@@ -8,7 +8,8 @@ import About_Me from './components/pages/About_Me';
 import Education from './components/pages/Education';
 import My_Work from './components/pages/My_Work';
 import Resume from './components/pages/Resume';
-import Success from './components/pages/Success';
+import Personal_life from './components/pages/Personal_Life';
+import CliftonStrengths from './components/pages/CliftonStrengths';
 
 function App() {
   return (
@@ -21,7 +22,8 @@ function App() {
         <Route path="/education" element={<Education />} />
         <Route path="/my_work" element={<My_Work />} />
         <Route path="/resume" element={<Resume />} />
-        <Route path="/success" element={<Success />} />
+        <Route path="/about_me/personal_life" element={<Personal_life />} />
+        <Route path="/about_me/clifton_strengths" element={<CliftonStrengths />} />
       </Routes>
     </BrowserRouter>
   );

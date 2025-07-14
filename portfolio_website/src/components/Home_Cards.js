@@ -13,25 +13,25 @@ function Cards() {
                     src={`${process.env.PUBLIC_URL}/images/COLSA.png`}
                     text="COLSA Corporation Data Science Intern"
                     label='Work Experience'
-                    path='/about_me'
+                    path='/my_work'
                     customClass="zoomed-out"/>
                     <CardItem 
                     src={`${process.env.PUBLIC_URL}/images/projects.png`}
                     text="Unity, Reinforcement Learning, etc"
                     label='Projects'
-                    path='/about_me'/>
+                    path='/my_work'/>
                 </ul>
                 <ul className="cards__items">
                     <CardItem 
                     src={`${process.env.PUBLIC_URL}/images/bama.png`}
                     text="The University of Alabama"
                     label='Education'
-                    path='/about_me'/>
+                    path='/education'/>
                     <CardItem 
                     src={`${process.env.PUBLIC_URL}/images/courses.png`}
                     text="Class Names and Content Covered"
                     label='Courses'
-                    path='/about_me'/>
+                    path='/education'/>
                 </ul>
                 <ul className="cards__items">
                     <CardItem 

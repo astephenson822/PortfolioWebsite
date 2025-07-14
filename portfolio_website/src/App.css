@@ -17,41 +17,98 @@
   font-size: 3rem;
 }
 
-.about_me {
-  background: #686868;
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  color: #fff;
-  font-size: 100px;
+.about-me-page {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 40px 20px;
 }
 
-.education {
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover; 
-  color: #fff;
-  font-size: 100px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 90vh;
+.about-me-section {
+  margin-bottom: 40px;
+  background: #f9f9f9;
+  padding: 20px 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
-.education-images {
+.about-me-section h2 {
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.about-me-section p {
+  margin: 6px 0;
+  font-size: 1rem;
+  color: #555;
+}
+
+.about-me-section .btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #333;
+  color: #fff;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: background 0.3s;
+}
+
+.about-me-section .btn:hover {
+  background-color: #555;
+}
+
+.skills-grid {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-wrap: wrap;
   gap: 2rem;
-  margin-top: 2rem;
 }
 
-.education-img {
-  max-width: 90%;
-  height: auto;
-  border-radius: 10px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+.skills-column {
+  flex: 1;
+  min-width: 200px;
 }
+
+.skills-column h3 {
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.skills-column ul {
+  list-style-type: disc;
+  padding-left: 20px;
+}
+
+.skills-column li {
+  margin-bottom: 6px;
+  color: #555;
+}
+
+.education-page {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+.education-section {
+  margin-bottom: 40px;
+  background: #f9f9f9;
+  padding: 20px 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.education-section h2 {
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.education-section p {
+  margin: 6px 0;
+  font-size: 1rem;
+  color: #555;
+}
+
 
 .my_work {
   background-position: center;
