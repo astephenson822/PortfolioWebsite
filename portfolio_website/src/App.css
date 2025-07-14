@@ -99,7 +99,7 @@
     transform: translateX(-50%) scale(0.5);
     transform-origin: top center;
     width: 200%;
-    height: 200%;
+    height: 100%;
   }
 }
 
