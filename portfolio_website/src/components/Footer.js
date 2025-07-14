@@ -43,9 +43,9 @@ function Footer() {
                 <div className='footer-link-items'>
                     <h2>Projects</h2>
                     <Link to='/my_work'> Unity Game Development</Link>
-                    <Link to='/my_work'> 2</Link>
-                    <Link to='/my_work'> 3</Link>
-                    <Link to='/my_work'> 4</Link>
+                    <Link to='/my_work'> EcoCAR Club</Link>
+                    <Link to='/my_work'> Data Science Paper</Link>
+                    <Link to='/my_work'> Data Structure Library</Link>
                 </div>
                 <div className='footer-link-items'>
                     <h2>Social Media</h2>
