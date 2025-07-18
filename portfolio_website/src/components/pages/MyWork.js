@@ -2,9 +2,11 @@ import React from 'react';
 import '../../App.css';
 import { Link } from 'react-router-dom';
 import BackButton from '../BackButton';
+import Footer from '../Footer';
 
 export default function My_Work() {
   return (
+    <>
     <div className="about-me-page">
       <BackButton />
       {/* Work/Internships Section */}
@@ -46,7 +48,7 @@ export default function My_Work() {
           </div>
 
           <div className="project-item">
-            <h3>EcoCAR</h3>
+            <h3>EcoCAR Club</h3>
             <Link to="/my_work/ecocar" className="btn">
               Learn More
             </Link>
@@ -54,5 +56,7 @@ export default function My_Work() {
         </div>
       </section>
     </div>
+    <Footer />
+    </>
   );
 }

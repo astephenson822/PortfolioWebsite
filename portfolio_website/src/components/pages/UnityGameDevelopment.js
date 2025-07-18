@@ -1,9 +1,11 @@
 import React from 'react';
 import '../../App.css';
 import BackButton from '../BackButton';
+import Footer from '../Footer';
 
 export default function Unity_Game_Development() {
   return (
+    <>
     <div className="about-me-page">
       <BackButton />
       <section className="about-me-section">
@@ -13,5 +15,7 @@ export default function Unity_Game_Development() {
         </p>
       </section>
     </div>
+    <Footer />
+    </>
   );
 }

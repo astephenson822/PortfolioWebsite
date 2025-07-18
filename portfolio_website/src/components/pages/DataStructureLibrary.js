@@ -1,9 +1,11 @@
 import React from 'react';
 import '../../App.css';
 import BackButton from '../BackButton';
+import Footer from '../Footer';
 
 export default function Data_Structure_Library() {
   return (
+    <>
     <div className="about-me-page">
       <BackButton />
       <section className="about-me-section">
@@ -13,5 +15,7 @@ export default function Data_Structure_Library() {
         </p>
       </section>
     </div>
+    <Footer />
+    </>
   );
 }

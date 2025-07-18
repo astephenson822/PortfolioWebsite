@@ -1,9 +1,11 @@
 import React from 'react';
 import '../../App.css';
 import BackButton from '../BackButton';
+import Footer from '../Footer';
 
 export default function Education() {
   return (
+    <>
     <div className="education-page">
       <BackButton />
       <section className="education-section">
@@ -41,5 +43,7 @@ export default function Education() {
         <p><strong>GPA:</strong> 4.00 / 4.00</p>
       </section>
     </div>
+    <Footer />
+    </>
   );
 }

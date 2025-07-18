@@ -1,9 +1,11 @@
 import React from 'react';
 import '../../App.css';
 import BackButton from '../BackButton';
+import Footer from '../Footer';
 
 export default function CliftonStrengths() {
   return (
+    <>
     <div className="resume-container">
       <BackButton />
       <div className="pdf-viewer">
@@ -15,5 +17,7 @@ export default function CliftonStrengths() {
         />
       </div>
     </div>
+    <Footer />
+    </>
   );
 }

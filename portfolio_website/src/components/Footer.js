@@ -27,7 +27,7 @@ function Footer() {
                     <h2>About Me</h2>
                     <Link to='/about_me'> My Life</Link>
                     <Link to='/education'> Education</Link>
-                    <Link to='/about_me'> Work Experience</Link>
+                    <Link to='/my_work'> Work Experience</Link>
                     <Link to='/about_me'> Hobbies</Link>
                     <Link to='/about_me'> Personal Mission</Link>
                 </div>
@@ -42,10 +42,10 @@ function Footer() {
             <div className='footer-link-wrapper'>
                 <div className='footer-link-items'>
                     <h2>Projects</h2>
-                    <Link to='/my_work'> Unity Game Development</Link>
-                    <Link to='/my_work'> EcoCAR Club</Link>
-                    <Link to='/my_work'> Data Science Paper</Link>
-                    <Link to='/my_work'> Data Structure Library</Link>
+                    <Link to='/my_work/dsa_library'> Data Structure Library</Link>
+                    <Link to='/my_work/ds_paper'> Data Science Paper</Link>
+                    <Link to='/my_work/unity_game_development'> Unity Game Development</Link>
+                    <Link to='/my_work/ecocar'> EcoCAR Club</Link>
                 </div>
                 <div className='footer-link-items'>
                     <h2>Social Media</h2>

@@ -1,9 +1,11 @@
 import React from 'react';
 import '../../App.css';
 import BackButton from '../BackButton';
+import Footer from '../Footer';
 
 export default function Colsa_Internship() {
   return (
+    <>
     <div className="about-me-page">
         <BackButton />
       <section className="about-me-section">
@@ -33,5 +35,7 @@ export default function Colsa_Internship() {
         </div>
       </section>
     </div>
+    <Footer />
+    </>
   );
 }

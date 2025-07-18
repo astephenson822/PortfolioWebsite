@@ -2,9 +2,11 @@ import React from 'react';
 import '../../App.css';
 import { Link } from 'react-router-dom';
 import BackButton from '../BackButton'; // adjust path if needed
+import Footer from '../Footer';
 
 export default function About_me() {
   return (
+    <>
     <div className="about-me-page">
       <BackButton />
       <section className="about-me-section">
@@ -112,5 +114,7 @@ export default function About_me() {
         </Link>
       </section>
     </div>
+    <Footer />
+    </>
   );
 }
