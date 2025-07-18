@@ -226,3 +226,48 @@
   border-radius: 8px;
   max-width: 300px;
 }
+
+.project-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem; /* creates space between items */
+  margin-top: 1rem;
+}
+
+.project-item {
+  padding: 1.5rem;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background-color: #f9f9f9;
+  font-size: 1.1rem;
+}
+
+.project-item h3 {
+  margin-bottom: 0.5rem;
+  font-size: 1.4rem;
+}
+
+.project-item .btn {
+  font-size: 1rem;
+  padding: 0.6rem 1.2rem;
+}
+
+.internship-block {
+  margin-bottom: 2rem;
+}
+
+.internship-block h3 {
+  font-size: 1.3rem;
+  margin-bottom: 0.2rem;
+}
+
+.internship-location {
+  font-style: italic;
+  margin-bottom: 0.5rem;
+}
+
+.internship-block ul {
+  padding-left: 1.2rem;
+  line-height: 1.6;
+  list-style-type: disc;
+}
