@@ -1,0 +1,16 @@
+.back-button-container {
+  padding: 1rem 1.5rem;
+}
+
+.back-button {
+  background-color: transparent;
+  color: #007bff;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.back-button:hover {
+  color: #0056b3;
+}

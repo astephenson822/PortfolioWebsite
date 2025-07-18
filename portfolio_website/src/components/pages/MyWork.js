@@ -1,10 +1,12 @@
 import React from 'react';
 import '../../App.css';
 import { Link } from 'react-router-dom';
+import BackButton from '../BackButton';
 
 export default function My_Work() {
   return (
     <div className="about-me-page">
+      <BackButton />
       {/* Work/Internships Section */}
       <section className="about-me-section">
         <h2>Work / Internships</h2>

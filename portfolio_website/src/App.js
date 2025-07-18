@@ -15,11 +15,13 @@ import DataSciencePaper from './components/pages/DataSciencePaper';
 import UnityGameDevelopment from './components/pages/UnityGameDevelopment';
 import EcoCAR from './components/pages/EcoCAR';
 import ColsaInternship from './components/pages/ColsaInternship';
+import ScrollToTop from './components/ScrollToTop';
 
 function App() {
   return (
     <BrowserRouter basename="/PortfolioWebsite">
       <Navbar />
+      <ScrollToTop />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/home" element={<Home />} />

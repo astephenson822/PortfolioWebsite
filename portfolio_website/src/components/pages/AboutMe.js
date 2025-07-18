@@ -1,10 +1,12 @@
 import React from 'react';
 import '../../App.css';
 import { Link } from 'react-router-dom';
+import BackButton from '../BackButton'; // adjust path if needed
 
 export default function About_me() {
   return (
     <div className="about-me-page">
+      <BackButton />
       <section className="about-me-section">
         <h2>My Skills</h2>
         <div className="skills-grid">
@@ -60,14 +62,14 @@ export default function About_me() {
       <section className="about-me-section">
         <h2>About Me</h2>
         <p> I am a rising senior pursuing a Bachelor's of Science in Computer Science 
-      at the University of Alabama. I grew up in Carterville, Illinois all my life. I have one 
-      brother, two dogs, and four cats. Some things I like to do for fun include playing video 
-      games, watching/going to sporting events, watching tv shows, hiking, fishing, the outdoors in 
-      general, and traveling. I also have a love for technology and a deep hunger for knowledge. Ever 
-      since High School I have always been an overachiever, which is shown by me being my class's 
-      Valedictorian, as well as still having a 4.0 gpa in college. </p>
+        at the University of Alabama. I grew up in Carterville, Illinois all my life. I have one 
+        brother, two dogs, and four cats. Some things I like to do for fun include playing video 
+        games, watching/going to sporting events, watching tv shows, hiking, fishing, the outdoors in 
+        general, and traveling. I also have a love for technology and a deep hunger for knowledge. Ever 
+        since High School I have always been an overachiever, which is shown by me being my class's 
+        Valedictorian, as well as still having a 4.0 gpa in college. </p>
 
-      <p>I have always strived for 
+        <p>I have always strived for 
         perfection in everything I do, which is perfect for being a Computer Science major. Not only 
         do I put an immense amount of effort towards my grades, but I also am very involved in my 
         school's community as well. I am in a club called the EcoCAR EV Challenge, as well as in the 

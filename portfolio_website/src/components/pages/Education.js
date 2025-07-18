@@ -1,9 +1,11 @@
 import React from 'react';
 import '../../App.css';
+import BackButton from '../BackButton';
 
 export default function Education() {
   return (
     <div className="education-page">
+      <BackButton />
       <section className="education-section">
         <h2>College Education</h2>
         <p><strong>Degree:</strong> Bachelor of Science in Computer Science</p>

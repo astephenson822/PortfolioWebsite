@@ -1,9 +1,11 @@
 import React from 'react';
 import '../../App.css';
+import BackButton from '../BackButton';
 
 export default function Resume() {
   return (
     <div className="resume-container">
+      <BackButton />
       <div className="pdf-viewer">
         <iframe
           src={`${process.env.PUBLIC_URL}/Resume.pdf`}
