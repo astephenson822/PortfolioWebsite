@@ -8,13 +8,19 @@ export default function BackButton() {
 
   if (location.pathname === '/') return null;
 
-  const handleBack = () => {
-    if (window.history.length > 2) {
-      navigate(-1); // go back if we have something in history
-    } else {
-      navigate('/'); // fallback to homepage
-    }
-  };
+const handleBack = () => {
+  if (window.history.length > 2) {
+    navigate(-1);
+    setTimeout(() => {
+      window.scrollTo(0, 0);
+    }, 100); // slight delay to let the page render
+  } else {
+    navigate('/');
+    setTimeout(() => {
+      window.scrollTo(0, 0);
+    }, 100);
+  }
+};
 
   return (
     <div className="back-button-container">
