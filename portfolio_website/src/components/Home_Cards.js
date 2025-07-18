@@ -11,32 +11,32 @@ function Cards() {
                 <ul className="cards__items">
                     <CardItem 
                     src={`${process.env.PUBLIC_URL}/images/COLSA.png`}
-                    text="COLSA Corporation Data Science Intern"
+                    text="Data Science Intern at COLSA Corporation"
                     label='Work Experience'
                     path='/my_work'
                     customClass="zoomed-out"/>
                     <CardItem 
                     src={`${process.env.PUBLIC_URL}/images/projects.png`}
-                    text="Unity, Reinforcement Learning, etc"
+                    text="Unity and Reinforcement Learning"
                     label='Projects'
                     path='/my_work'/>
                 </ul>
                 <ul className="cards__items">
                     <CardItem 
                     src={`${process.env.PUBLIC_URL}/images/bama.png`}
-                    text="The University of Alabama"
+                    text="The University of Alabama Tuscaloosa"
                     label='Education'
                     path='/education'/>
                     <CardItem 
                     src={`${process.env.PUBLIC_URL}/images/courses.png`}
-                    text="Class Names and Content Covered"
+                    text="Relevant Coursework"
                     label='Courses'
                     path='/education'/>
                 </ul>
                 <ul className="cards__items">
                     <CardItem 
                     src={`${process.env.PUBLIC_URL}/images/skills.png`}
-                    text="Technical, hard, and soft"
+                    text="Coding, Computer, and soft"
                     label='Skills'
                     path='/about_me'/>
                     <CardItem 
