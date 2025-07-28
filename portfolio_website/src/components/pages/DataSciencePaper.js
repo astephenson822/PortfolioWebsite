@@ -6,16 +6,19 @@ import Footer from '../Footer';
 export default function Data_Science_Paper() {
   return (
     <>
-    <div className="about-me-page">
-      <BackButton />
-      <section className="about-me-section">
-        <h2>Data Structure Library</h2>
-        <p>
-          This is where you can share more about your hobbies, family, interests, and what you enjoy outside of work or school.
-        </p>
-      </section>
-    </div>
-    <Footer />
+      <div className="resume-container">
+        <BackButton />
+        <div className="pdf-viewer" style={{ height: '80vh', margin: '2rem' }}>
+          <iframe
+            src={`${process.env.PUBLIC_URL}/CS451Paper.pdf`}
+            title="CS 451 Paper"
+            width="100%"
+            height="100%"
+            style={{ border: '1px solid #ccc', borderRadius: '8px' }}
+          />
+        </div>
+      </div>
+      <Footer />
     </>
   );
 }
