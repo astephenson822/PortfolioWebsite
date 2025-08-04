@@ -271,3 +271,16 @@
   line-height: 1.6;
   list-style-type: disc;
 }
+
+.ecocar-image-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.ecocar-image {
+  max-width: 300px;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}

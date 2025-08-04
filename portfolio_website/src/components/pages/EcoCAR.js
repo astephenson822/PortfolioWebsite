@@ -6,16 +6,26 @@ import Footer from '../Footer';
 export default function EcoCAR() {
   return (
     <>
-    <div className="about-me-page">
-      <BackButton />
-      <section className="about-me-section">
-        <h2>Data Structure Library</h2>
-        <p>
-          This is where you can share more about your hobbies, family, interests, and what you enjoy outside of work or school.
-        </p>
-      </section>
-    </div>
-    <Footer />
+      <div className="about-me-page">
+        <BackButton />
+        <section className="about-me-section">
+          <h2>My Work in EcoCAR!</h2>
+          <ul>
+            <li>Assignments with a Gitlab task board to complete tasks in a timely manner</li>
+            <li>Development using MATLAB and Simulink to create a working sensor fusion algorithm</li>
+            <li>Simulation with driving scenario designer and unreal engine through MATLAB</li>
+            <li>Conversion of working sensor fusion algorithm to Python using RTMaps</li>
+          </ul>
+          <div className="ecocar-image-container">
+            <img
+              src="../images/EcoCAR.png" // Replace with actual path
+              alt="EcoCAR team vehicle"
+              className="ecocar-image"
+            />
+          </div>
+        </section>
+      </div>
+      <Footer />
     </>
   );
 }
