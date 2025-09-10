@@ -89,50 +89,56 @@ app.post("/api/chat", async (req, res) => {
 
   let context = "";
   try {
-    // Take the latest user question
     const userMsg = messages[messages.length - 1].content;
 
     if (docs.length > 0) {
       const qEmb = await getEmbedding(userMsg);
-      // rank docs by similarity
       const ranked = docs
         .map((d) => ({ ...d, score: cosineSim(qEmb, d.embedding) }))
         .sort((a, b) => b.score - a.score);
 
-      // take top 3 chunks
       const top = ranked.slice(0, 3).map((r) => r.text).join("\n\n");
       context = `Relevant information from Andrew's documents:\n${top}\n\n`;
     }
 
-    const response = await fetch("https://api.openai.com/v1/chat/completions", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${process.env.OPENAI_API_KEY}`,
-      },
-      body: JSON.stringify({
-        model: "gpt-3.5-turbo",
-        messages: [
-          {
-            role: "system",
-            content:
-              "You are Andrew's portfolio assistant. Use the provided context if relevant.",
-          },
-          ...(context
-            ? [{ role: "system", content: context }]
-            : []),
-          ...messages,
-        ],
-      }),
-    });
+    // Wrap OpenAI call in try/catch with timeout logging
+    let data;
+    try {
+      const response = await fetch("https://api.openai.com/v1/chat/completions", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${process.env.OPENAI_API_KEY}`,
+        },
+        body: JSON.stringify({
+          model: "gpt-3.5-turbo",
+          messages: [
+            { role: "system", content: "You are Andrew's portfolio assistant. Use the provided context if relevant." },
+            ...(context ? [{ role: "system", content: context }] : []),
+            ...messages,
+          ],
+        }),
+      });
 
-    const data = await response.json();
+      if (!response.ok) {
+        const text = await response.text();
+        console.error("OpenAI API returned error:", response.status, text);
+        return res.status(500).json({ error: `OpenAI API error: ${response.status}`, details: text });
+      }
+
+      data = await response.json();
+    } catch (apiErr) {
+      console.error("Error calling OpenAI API:", apiErr);
+      return res.status(500).json({ error: "OpenAI API request failed", details: apiErr.message });
+    }
+
     res.json(data);
   } catch (err) {
-    console.error(err);
-    res.status(500).json({ error: "Error calling OpenAI API" });
+    console.error("Server error in /api/chat:", err);
+    res.status(500).json({ error: "Internal server error", details: err.message });
   }
 });
+
 
 // At the bottom of server.js, before app.listen:
 (async () => {
