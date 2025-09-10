@@ -15,17 +15,16 @@ function Chatbot() {
 
     try {
       // ⚠️ For production: replace with your backend endpoint
-      const response = await fetch("https://api.openai.com/v1/chat/completions", {
+      const response = await fetch("http://localhost:5000/api/chat", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "Authorization": `Bearer ${process.env.REACT_APP_OPENAI_API_KEY}`, // hide key in .env
-        },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          model: "gpt-4o-mini",
-          messages: [{ role: "user", content: input }],
+          messages: [
+            { role: "user", content: input }
+          ]
         }),
       });
+
 
       const data = await response.json();
       const reply = data.choices?.[0]?.message?.content || "No response";
@@ -35,7 +34,7 @@ function Chatbot() {
       console.error("Error:", error);
       setMessages((prev) => [
         ...prev,
-        { role: "assistant", content: "Something went wrong. Please try again." },
+        { role: "assistant", content: "I am sorry, the server is currently down." },
       ]);
     }
 
@@ -52,7 +51,7 @@ function Chatbot() {
             key={i}
             className={m.role === "user" ? "chat-bubble user" : "chat-bubble ai"}
           >
-            <b>{m.role === "user" ? "You" : "AI"}:</b> {m.content}
+            <b>{m.role === "user" ? "You" : "Andrew's Portfolio AI"}:</b> {m.content}
           </div>
         ))}
         {loading && <p><i>AI is thinking...</i></p>}
