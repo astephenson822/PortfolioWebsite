@@ -15,7 +15,7 @@ function Chatbot() {
 
     try {
       // ⚠️ For production: replace with your backend endpoint
-      const response = await fetch("http://localhost:5000/api/chat", {
+      const response = await fetch("https://portfolio-backend-5w0i.onrender.com/api/chat", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
