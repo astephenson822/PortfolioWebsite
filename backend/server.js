@@ -149,7 +149,7 @@ app.post("/api/chat", async (req, res) => {
         text = buffer.toString("utf-8");
       }
 
-      const chunks = text.split(/\n\s*\n/).filter((c) => c.trim().length);
+      const chunks = text.split(/\n\s*\n|[\r\n]+/).filter((c) => c.trim().length);
       for (let chunk of chunks) {
         const emb = await getEmbedding(chunk);
         docs.push({ text: chunk, embedding: emb });
