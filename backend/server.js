@@ -137,7 +137,7 @@ app.post("/api/chat", async (req, res) => {
 // At the bottom of server.js, before app.listen:
 (async () => {
   try {
-    const filePath = "./example.txt"; // or example.txt
+    const filePath = path.resolve('./example.txt'); // or example.txt
     if (fs.existsSync(filePath)) {
       const buffer = fs.readFileSync(path.resolve(filePath));
       let text = "";
