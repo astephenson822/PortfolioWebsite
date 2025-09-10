@@ -4,7 +4,7 @@ import fetch from "node-fetch";
 import dotenv from "dotenv";
 import fs from "fs";
 import path from "path";
-import pdfParse from "pdf-parse";  // to handle resume/transcript PDFs
+import pdfParse from "pdf-parse/lib/pdf-parse.js";
 
 dotenv.config();
 
