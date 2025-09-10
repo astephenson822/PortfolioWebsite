@@ -9,11 +9,19 @@ export default function Colsa_Internship() {
     <div className="about-me-page">
         <BackButton />
       <section className="about-me-section">
-        <h2>COLSA Corporation Internships</h2>
+        <h2>COLSA Corporation - Huntsville, AL</h2>
 
         <div className="internship-block">
-          <h3>Data Science Intern — COLSA Corporation</h3>
-          <p className="internship-location">Huntsville, AL | June 2025 – Present</p>
+          <h3>Data Scientist (Remote)</h3>
+          <p className="internship-location">August 2025 – Present</p>
+          <ul>
+            <li>Working on HAAST contract to construct TAK plugins</li>
+          </ul>
+        </div>
+
+        <div className="internship-block">
+          <h3>Data Science Intern</h3>
+          <p className="internship-location">June 2025 – August 2025</p>
           <ul>
             <li>Developed an ATAK server and corresponding clients to send and receive data</li>
             <li>Utilized Docker and Meshroom to reconstruct bridge models using photogrammetry</li>
@@ -22,8 +30,8 @@ export default function Colsa_Internship() {
         </div>
 
         <div className="internship-block">
-          <h3>Data Science Intern — COLSA Corporation</h3>
-          <p className="internship-location">Huntsville, AL | June 2024 – August 2024</p>
+          <h3>Data Science Intern</h3>
+          <p className="internship-location">June 2024 – August 2024</p>
           <ul>
             <li>Briefed daily on project progress and blockers using agile methodologies</li>
             <li>Set up a drone simulation environment with Gazebo, Ardupilot, ROS, and Mavlink software</li>

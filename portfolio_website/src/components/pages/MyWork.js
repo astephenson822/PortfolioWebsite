@@ -14,7 +14,7 @@ export default function My_Work() {
         <h2>Work / Internships</h2>
         {/* Example entry – add more as needed */}
         <div className="project-item">
-          <h3>Data Science Internships at COLSA Corporation</h3>
+          <h3>Work at COLSA Corporation</h3>
           <Link to="/my_work/colsa_internship" className="btn">
             Learn More
           </Link>

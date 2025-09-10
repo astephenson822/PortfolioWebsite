@@ -11,15 +11,6 @@ function Footer() {
                 More Information
             </p>
             <br />
-
-            <div className='input-areas'>
-                <form>
-                    <input type='LinkedIn' name='LinkedIn' placeholder='My LinkedIn' className='footer-input'/>
-                    <Button buttonStyle='btn--outline'>
-                        My INFO
-                    </Button>
-                </form>
-            </div>
         </section>
         <div className='footer-links'>
             <div className='footer-link-wrapper'>

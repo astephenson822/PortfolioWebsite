@@ -11,13 +11,13 @@ function Cards() {
                 <ul className="cards__items">
                     <CardItem 
                     src={`${process.env.PUBLIC_URL}/images/COLSA.png`}
-                    text="Data Science Intern at COLSA Corporation"
+                    text="My Work at COLSA Corporation"
                     label='Work Experience'
                     path='/my_work'
                     customClass="zoomed-out"/>
                     <CardItem 
                     src={`${process.env.PUBLIC_URL}/images/projects.png`}
-                    text="Unity and Reinforcement Learning"
+                    text="Class Work, Unity Development, and EcoCAR"
                     label='Projects'
                     path='/my_work'/>
                 </ul>

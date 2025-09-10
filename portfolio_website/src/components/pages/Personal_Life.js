@@ -9,10 +9,14 @@ export default function Personal_Life() {
     <div className="about-me-page">
       <BackButton />
       <section className="about-me-section">
-        <h2>My Personal Life</h2>
-        <p>
-          This is where you can share more about your hobbies, family, interests, and what you enjoy outside of work or school.
-        </p>
+        <h2>My Hobbies:</h2>
+        <ul>
+          <li>Traveling</li>
+          <li>Hiking</li>
+          <li>Video Games</li>
+          <li>Watching Football</li>
+          <li>Gym</li>
+        </ul>
       </section>
     </div>
     <Footer />

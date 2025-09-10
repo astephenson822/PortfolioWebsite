@@ -9,10 +9,13 @@ export default function Unity_Game_Development() {
     <div className="about-me-page">
       <BackButton />
       <section className="about-me-section">
-        <h2>Data Structure Library</h2>
-        <p>
-          This is where you can share more about your hobbies, family, interests, and what you enjoy outside of work or school.
-        </p>
+        <h2>Specific Work in Unity Projects</h2>
+        <ul>
+          <li>Developed C# scripts for the character object to move based on user input</li>
+          <li>Implemented an in-game pick-up feature via instance deletion and recreation</li>
+          <li>Constructed an inventory management system where object instances are placed and removed from an array</li>
+          <li>Set up game-over feature through chracter and world bounding boxes to allow game restart/exit</li>
+        </ul>
       </section>
     </div>
     <Footer />

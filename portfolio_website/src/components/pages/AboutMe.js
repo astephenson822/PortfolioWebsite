@@ -29,7 +29,6 @@ export default function About_me() {
           <div className="skills-column">
             <h3>Computer</h3>
             <ul>
-              <li>Microsoft Office Suite</li>
               <li>ROS</li>
               <li>Ardupilot</li>
               <li>Mavlink</li>
@@ -37,6 +36,8 @@ export default function About_me() {
               <li>Ubuntu</li>
               <li>VirtualBox</li>
               <li>Power BI</li>
+              <li>MySQL</li>
+              <li>MongoDB</li>
               <li>Visual Studio</li>
               <li>MATLAB</li>
               <li>Git</li>
