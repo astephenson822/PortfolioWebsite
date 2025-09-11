@@ -17,11 +17,7 @@ export default function EcoCAR() {
             <li>Conversion of working sensor fusion algorithm to Python using RTMaps</li>
           </ul>
           <div className="ecocar-image-container">
-            <img
-              src="../images/EcoCAR.png" // Replace with actual path
-              alt="EcoCAR team vehicle"
-              className="ecocar-image"
-            />
+          <img src={`${process.env.PUBLIC_URL}/images/EcoCAR.png`} alt="EcoCAR team vehicle" className="ecocar-image" />
           </div>
         </section>
       </div>
