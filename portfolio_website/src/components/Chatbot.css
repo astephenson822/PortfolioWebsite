@@ -1,11 +1,12 @@
 .chatbot-container {
   max-width: 600px;
-  margin: 2rem auto;
+  margin: 1rem auto 12rem auto; /* top 1rem, bottom 3rem */
   border: 1px solid #ccc;
   padding: 1rem;
   border-radius: 12px;
   background: #f9f9f9;
 }
+
 
 .chat-window {
   height: 300px;

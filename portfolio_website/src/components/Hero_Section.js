@@ -1,6 +1,7 @@
 import React from 'react'
 import {Button} from './Button'
 import './Hero_Section.css'
+import Chatbot from './Chatbot';
 
 function HeroSection() {
   return (
@@ -17,6 +18,7 @@ function HeroSection() {
             <Button className='btns' buttonStyle='btn--primary' buttonSize='btn--large' to='/my_work'>My work/personal projects
             </Button>
         </div>
+        <Chatbot />
     </div>
   )
 }
