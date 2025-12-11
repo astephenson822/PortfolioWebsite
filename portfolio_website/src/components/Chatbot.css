@@ -1,6 +1,6 @@
 .chatbot-container {
   max-width: 600px;
-  margin: 1rem auto 12rem auto; /* top 1rem, bottom 3rem */
+  margin: 1rem auto 12rem auto;
   border: 1px solid #ccc;
   padding: 1rem;
   border-radius: 12px;

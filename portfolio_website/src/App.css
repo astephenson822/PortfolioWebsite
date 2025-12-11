@@ -123,7 +123,7 @@
   flex-direction: column;
   align-items: center;
   padding: 40px 20px;
-  min-height: 100vh;  /* full viewport height */
+  min-height: 100vh;
   background-color: #f0f0f0;
 }
 
@@ -131,7 +131,7 @@
   width: 100%;
   max-width: 1200px;
   flex-grow: 1;
-  height: 90vh;  /* try 90% of viewport height */
+  height: 90vh;
   border: none;
   overflow: hidden;
 }
@@ -162,14 +162,14 @@
 
 
 .form-box {
-  background: rgba(0, 0, 0, 0.5); /* semi-transparent box */
+  background: rgba(0, 0, 0, 0.5);
   padding: 40px;
   border-radius: 8px;
   text-align: center;
 }
 
 .form-box h1 {
-  font-size: 2rem; /* override giant 100px */
+  font-size: 2rem;
   margin-bottom: 20px;
 }
 
@@ -216,7 +216,7 @@
 }
 
 .presentation-card h2 {
-  font-size: 1.5rem; /* smaller, consistent */
+  font-size: 1.5rem;
   margin-bottom: 10px;
 }
 
@@ -230,7 +230,7 @@
 .project-list {
   display: flex;
   flex-direction: column;
-  gap: 2rem; /* creates space between items */
+  gap: 2rem;
   margin-top: 1rem;
 }
 

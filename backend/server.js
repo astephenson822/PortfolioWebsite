@@ -16,15 +16,13 @@ const PORT = process.env.PORT || 5000;
 
 app.use(
   cors({
-    origin: "*", // allow all origins (your frontend)
+    origin: "*",
   })
 );
 app.use(express.json());
 
-// ===== In-memory "vector store" =====
-let docs = []; // [{ text: string, embedding: number[] }]
+let docs = [];
 
-// ===== OpenAI embedding helper =====
 async function getEmbedding(text) {
   try {
     const response = await fetch("https://api.openai.com/v1/embeddings", {
@@ -53,7 +51,6 @@ async function getEmbedding(text) {
   }
 }
 
-// ===== Cosine similarity =====
 function cosineSim(a, b) {
   let dot = 0;
   let normA = 0;
@@ -69,7 +66,6 @@ function cosineSim(a, b) {
   return dot / (Math.sqrt(normA) * Math.sqrt(normB));
 }
 
-// ===== System prompt =====
 const SYSTEM_PROMPT = `
 You are a portfolio assistant for Andrew Stephenson.
 
@@ -81,7 +77,6 @@ If something is not in the context, say you don't know rather than guessing.
 Keep answers concise and conversational, but include specific details from the context when helpful.
 `;
 
-// ===== Chat endpoint with RAG =====
 app.post("/api/chat", async (req, res) => {
   const { messages } = req.body;
 
@@ -94,10 +89,8 @@ app.post("/api/chat", async (req, res) => {
 
     let context = "";
     if (docs.length > 0 && userMsg.trim().length > 0) {
-      // Get embedding of the user's question
       const qEmb = await getEmbedding(userMsg);
 
-      // Rank documents by similarity (for now, probably just 1 doc)
       const ranked = docs
         .map((d) => ({
           ...d,
@@ -111,7 +104,6 @@ app.post("/api/chat", async (req, res) => {
       context = `Here is information about Andrew Stephenson. Use it to answer questions about him:\n\n${topText}\n\n`;
     }
 
-    // Call OpenAI chat completions
     const response = await fetch("https://api.openai.com/v1/chat/completions", {
       method: "POST",
       headers: {
@@ -150,14 +142,12 @@ app.post("/api/chat", async (req, res) => {
   }
 });
 
-// ===== Preload RAG_Info.txt on startup =====
 (async () => {
   try {
     const filePath = path.resolve(__dirname, "RAG_Info.txt");
     if (fs.existsSync(filePath)) {
       const text = fs.readFileSync(filePath, "utf-8");
 
-      // For this portfolio, embed the whole file as one document
       const emb = await getEmbedding(text);
       docs = [{ text, embedding: emb }];
 

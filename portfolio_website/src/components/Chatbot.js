@@ -9,12 +9,10 @@ function Chatbot() {
   const [messages, setMessages] = useState([]);
   const [loading, setLoading] = useState(false);
 
-  // Type the initial message on mount
   useEffect(() => {
     typeMessage(initialMessage, "assistant");
   }, []);
 
-  // Typing utility: overwrite last message if same role
   const typeMessage = (text, role = "assistant") => {
     let index = 0;
     let currentText = "";
@@ -24,12 +22,10 @@ function Chatbot() {
 
       setMessages((prev) => {
         if (prev.length > 0 && prev[prev.length - 1].role === role) {
-          // Overwrite last bubble
           return prev.map((msg, i) =>
             i === prev.length - 1 ? { ...msg, content: currentText } : msg
           );
         } else {
-          // Create new bubble
           return [...prev, { role, content: currentText }];
         }
       });
@@ -47,7 +43,6 @@ function Chatbot() {
     setMessages((prev) => [...prev, { role: "user", content: userInput }]);
     setLoading(true);
 
-    // Start typing "AI is thinking..." immediately
     typeMessage("AI is thinking...", "assistant");
 
     try {
@@ -65,7 +60,6 @@ function Chatbot() {
       const data = await response.json();
       const reply = data.choices?.[0]?.message?.content || "No response";
 
-      // Overwrite "AI is thinking..." with actual reply
       setMessages((prev) =>
         prev.map((msg, i) =>
           i === prev.length - 1 && msg.role === "assistant"

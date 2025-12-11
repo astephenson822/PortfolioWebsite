@@ -3,21 +3,20 @@ video {
   top: 0;
   left: 0;
   width: 100%;
-  height: 100vh;      /* full viewport height */
+  height: 100vh;
   object-fit: cover;
   z-index: -1;
 }
 
 .hero-container {
-  /* Full viewport height, but allow for nav + mobile browser chrome */
   min-height: 100vh;
   width: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: center; /* center vertically */
-  align-items: center;     /* center horizontally */
+  justify-content: center;
+  align-items: center;
   box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.2);
-  padding: 80px 1rem 2rem; /* top padding so it never hides under a navbar */
+  padding: 80px 1rem 2rem;
   box-sizing: border-box;
   position: relative;
 }
@@ -25,7 +24,7 @@ video {
 .hero-container > h1 {
   color: #fff;
   font-size: 72px;
-  margin: 0 1rem 1rem; /* no margin-top hacks */
+  margin: 0 1rem 1rem;
   text-align: center;
 }
 
@@ -50,14 +49,12 @@ video {
   margin-left: 4px;
 }
 
-/* Tablet */
 @media screen and (max-width: 960px) {
   .hero-container > h1 {
     font-size: 56px;
   }
 }
 
-/* Mobile */
 @media screen and (max-width: 768px) {
   .hero-container > h1 {
     font-size: 40px;

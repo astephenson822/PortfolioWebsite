@@ -13,7 +13,7 @@ const handleBack = () => {
     navigate(-1);
     setTimeout(() => {
       window.scrollTo(0, 0);
-    }, 100); // slight delay to let the page render
+    }, 100);
   } else {
     navigate('/');
     setTimeout(() => {
