@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/PortfolioWebsite/static/css/main.b24ad9e3.css",
+    "main.css": "/PortfolioWebsite/static/css/main.731aa0b4.css",
     "main.js": "/PortfolioWebsite/static/js/main.fc3e3cfc.js",
     "static/media/fa-solid-900.ttf": "/PortfolioWebsite/static/media/fa-solid-900.2582b0e4bcf85eceead0.ttf",
     "static/media/fa-brands-400.ttf": "/PortfolioWebsite/static/media/fa-brands-400.1815e00441357e01619e.ttf",
@@ -11,11 +11,11 @@
     "static/media/fa-v4compatibility.ttf": "/PortfolioWebsite/static/media/fa-v4compatibility.da94ef451f4969af06e6.ttf",
     "static/media/fa-v4compatibility.woff2": "/PortfolioWebsite/static/media/fa-v4compatibility.ea8f94e1d22e0d35ccd4.woff2",
     "index.html": "/PortfolioWebsite/index.html",
-    "main.b24ad9e3.css.map": "/PortfolioWebsite/static/css/main.b24ad9e3.css.map",
+    "main.731aa0b4.css.map": "/PortfolioWebsite/static/css/main.731aa0b4.css.map",
     "main.fc3e3cfc.js.map": "/PortfolioWebsite/static/js/main.fc3e3cfc.js.map"
   },
   "entrypoints": [
-    "static/css/main.b24ad9e3.css",
+    "static/css/main.731aa0b4.css",
     "static/js/main.fc3e3cfc.js"
   ]
 }
