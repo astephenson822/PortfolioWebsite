@@ -1,6 +1,5 @@
 // rag.js
 import fs from "fs";
-import pdfParse from "pdf-parse";
 import OpenAI from "openai";
 
 const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
@@ -8,17 +7,19 @@ const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
 let knowledgeBase = []; // [{ text, embedding }]
 
 // 1. Load and process PDF
-export async function loadDocument(pdfPath) {
-  const pdfBuffer = fs.readFileSync(pdfPath);
-  const data = await pdfParse(pdfBuffer);
-  const chunks = chunkText(data.text, 400); // split into ~400 char chunks
+export async function loadDocument(textPath) {
+  // Read as UTF-8 text
+  const rawText = fs.readFileSync(textPath, "utf8");
+
+  // Reuse your existing chunking logic
+  const chunks = chunkText(rawText, 400); // split into ~400 char chunks
 
   for (const chunk of chunks) {
     const embedding = await createEmbedding(chunk);
     knowledgeBase.push({ text: chunk, embedding });
   }
 
-  console.log(`✅ Loaded ${chunks.length} chunks from ${pdfPath}`);
+  console.log(`Loaded ${chunks.length} chunks from ${textPath}`);
 }
 
 // 2. Create embedding

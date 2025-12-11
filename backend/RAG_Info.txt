@@ -1,0 +1,67 @@
+This document has everything you should need about Andrew Stephenson
+
+Name: Andrew Stephenson 
+School email: amstephenson3@crimson.ua.edu
+Personal email: astephenson822@gmail.com
+Phone number: 618-521-3800
+LinkedIn URL: www.linkedin.com/in/a-m-stephenson 
+ 
+EDUCATION   
+Degree: Bachelor of Science in Computer Science
+Graduation Date: December 13th, 2025 
+College he graduated from: The University of Alabama, in Tuscaloosa, AL   
+Other facts: He was in the Honors College and had a 4.0 GPA
+ 
+SKILLS   
+These are some of the skills Andrew posesses through his classes, EcoCAR, and outside work/internships: 
+Python, C++, C, C#, Java, JavaScript, HTML, MongoDB, MySQL, TAK, ROS, Ardupilot, Mavlink, 
+Docker, Ubuntu, VirtualBox, Power BI, Visual Studio, MATLAB, Git, Jetson Nano, RTMaps, Gazebo and 
+Unity 
+ 
+SELECT COURSEWORK 
+These are the courses Andrew has taken that relate: Capstone Computing (CS 495), Reinforcement Learning (CS 484), 
+Artificial Intelligence (CS 465), Full Stack Development (CS 330), Data Science (CS 451), Operating Systems (CS 300), 
+Database Management Systems (CS 301), Data Structures and Algorithms (CS 201/470), Software Engineering (CS 200) 
+and Microcomputers (ECE 383) 
+ 
+RELEVANT EXPERIENCE
+Andrew worked at COLSA during his last semester of school remotely   
+Role: Data Scientist (Remote)
+Company: COLSA Corporation
+Company Location: Huntsville, AL
+Time worked: August 2025 to January 2026
+Work performed: Working on HAAST contract to construct TAK plugins. Delt with custom Protobufs and
+converted those messages to CoT. Integrated Jet client into Java RTAK plugins
+
+Andrew has also had two internships with colsa
+Role: Data Scientist Intern
+Company: COLSA Corporation
+Company Location: Huntsville, AL
+Time worked: June 2024 to August 2024 and June 2025 to August 2025
+Work performed: Utilized Docker and Meshroom to reconstruct bridge models using photogrammetry. 
+mplemented a full stack website with react.js, node.js, and a MySQL database. 
+Developed computer vision models using UNet and SAM3D for segmentation. 
+Briefed daily on project progress and blockers using agile methodologies. 
+Set up a drone simulation environment with Gazebo, Ardupilot, ROS, and Mavlink software. 
+Implemented Python algorithms, including A* for navigation and neural networks for 
+autonomous movement, utilizing both positional and lidar data.  
+Utilized Docker and VirtualBox to streamline testing and development processes. 
+ 
+Andrew was part of the Sensors subteam in EcoCAR, a competitive club at Alabama and many other schools
+Role: Sensors Subteam Member
+Club: EcoCAR EV Challenge
+Location: Tuscaloosa, AL
+Time in club: September 2022 to December 2025 
+Work performed: Assignments with a Gitlab task board to complete tasks in a timely manner. 
+Development using MATLAB and Simulink to create a working sensor fusion algorithm. 
+Simulation with driving scenario designer and unreal engine through MATLAB. 
+Conversion of working sensor fusion algorithm to Python using RTMaps. 
+     
+CAMPUS INVOLVEMENT   
+Andrew was also involved with his school through his fraternity, Sigma Alpha Mu
+Fraternity and Chapter: Sigma Alpha Mu Tau Chapter
+Time as active member: Otcober 2023 to December 2025   
+ 
+CLEARANCE
+Andrew also has a security Clearance
+Active Security Clearance: Interim Secret 
