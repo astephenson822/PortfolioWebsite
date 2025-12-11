@@ -4,163 +4,173 @@ import fetch from "node-fetch";
 import dotenv from "dotenv";
 import fs from "fs";
 import path from "path";
+import { fileURLToPath } from "url";
 
 dotenv.config();
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const app = express();
 const PORT = process.env.PORT || 5000;
 
 app.use(
   cors({
-    origin: "*", // frontend
+    origin: "*", // allow all origins (your frontend)
   })
 );
 app.use(express.json());
 
-// ===== In-Memory Vector Store =====
-let docs = []; // { text: string, embedding: number[] }
+// ===== In-memory "vector store" =====
+let docs = []; // [{ text: string, embedding: number[] }]
 
-// Get embeddings from OpenAI
+// ===== OpenAI embedding helper =====
 async function getEmbedding(text) {
-  const response = await fetch("https://api.openai.com/v1/embeddings", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: `Bearer ${process.env.OPENAI_API_KEY}`,
-    },
-    body: JSON.stringify({
-      model: "text-embedding-3-small",
-      input: text,
-    }),
-  });
-  const data = await response.json();
-  return data.data[0].embedding;
+  try {
+    const response = await fetch("https://api.openai.com/v1/embeddings", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${process.env.OPENAI_API_KEY}`,
+      },
+      body: JSON.stringify({
+        model: "text-embedding-3-small",
+        input: text,
+      }),
+    });
+
+    if (!response.ok) {
+      const errText = await response.text();
+      console.error("Embedding API error:", response.status, errText);
+      throw new Error(`Embedding API error: ${response.status}`);
+    }
+
+    const data = await response.json();
+    return data.data[0].embedding;
+  } catch (err) {
+    console.error("Error getting embedding:", err);
+    throw err;
+  }
 }
 
-// Cosine similarity
+// ===== Cosine similarity =====
 function cosineSim(a, b) {
-  let dot = 0,
-    normA = 0,
-    normB = 0;
+  let dot = 0;
+  let normA = 0;
+  let normB = 0;
+
   for (let i = 0; i < a.length; i++) {
     dot += a[i] * b[i];
     normA += a[i] * a[i];
     normB += b[i] * b[i];
   }
+
+  if (normA === 0 || normB === 0) return 0;
   return dot / (Math.sqrt(normA) * Math.sqrt(normB));
 }
 
-// ===== API ROUTES =====
+// ===== System prompt =====
+const SYSTEM_PROMPT = `
+You are a portfolio assistant for Andrew Stephenson.
 
-// Upload and embed a PDF (resume, transcript, etc.)
-app.post("/api/ingest", async (req, res) => {
-  try {
-    const { filePath } = req.body; // for now just give a local path
-    if (!filePath) {
-      return res.status(400).json({ error: "No file path provided" });
-    }
+The user you are talking to is NOT Andrew Stephenson, but it is Andrew's information that is provided.
+When the user says "He", "Him", or "His", they are referring to Andrew Stephenson.
 
-    const pdfBuffer = fs.readFileSync(path.resolve(filePath));
-    const parsed = await pdfParse(pdfBuffer);
+Use ONLY the provided context about Andrew's education, skills, coursework, projects, and experience when answering questions about him.
+If something is not in the context, say you don't know rather than guessing.
+Keep answers concise and conversational, but include specific details from the context when helpful.
+`;
 
-    // Split into chunks (simple split by paragraphs for now)
-    const chunks = parsed.text.split(/\n\s*\n/).filter((c) => c.trim().length);
-
-    for (let chunk of chunks) {
-      const emb = await getEmbedding(chunk);
-      docs.push({ text: chunk, embedding: emb });
-    }
-
-    res.json({ message: `Ingested ${chunks.length} chunks` });
-  } catch (err) {
-    console.error(err);
-    res.status(500).json({ error: "Error ingesting document" });
-  }
-});
-
-// Chat with optional RAG grounding
+// ===== Chat endpoint with RAG =====
 app.post("/api/chat", async (req, res) => {
   const { messages } = req.body;
 
-  if (!messages) {
+  if (!messages || !Array.isArray(messages) || messages.length === 0) {
     return res.status(400).json({ error: "No messages provided" });
   }
 
-  let context = "";
   try {
-    const userMsg = messages[messages.length - 1].content;
+    const userMsg = messages[messages.length - 1].content || "";
 
-    if (docs.length > 0) {
+    let context = "";
+    if (docs.length > 0 && userMsg.trim().length > 0) {
+      // Get embedding of the user's question
       const qEmb = await getEmbedding(userMsg);
+
+      // Rank documents by similarity (for now, probably just 1 doc)
       const ranked = docs
-        .map((d) => ({ ...d, score: cosineSim(qEmb, d.embedding) }))
+        .map((d) => ({
+          ...d,
+          score: cosineSim(qEmb, d.embedding),
+        }))
         .sort((a, b) => b.score - a.score);
 
-      const top = ranked.slice(0, 3).map((r) => r.text).join("\n\n");
-      context = `Relevant information from Andrew's documents:\n${top}\n\n`;
+      const topDocs = ranked.slice(0, 1);
+      const topText = topDocs.map((d) => d.text).join("\n\n");
+
+      context = `Here is information about Andrew Stephenson. Use it to answer questions about him:\n\n${topText}\n\n`;
     }
 
-    // Wrap OpenAI call in try/catch with timeout logging
-    let data;
-    try {
-      const response = await fetch("https://api.openai.com/v1/chat/completions", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${process.env.OPENAI_API_KEY}`,
-        },
-        body: JSON.stringify({
-          model: "gpt-4.1-mini",
-          messages: [
-            { role: "system", content: "You are Andrew's portfolio assistant. Use the provided context if relevant." },
-            ...(context ? [{ role: "system", content: context }] : []),
-            ...messages,
-          ],
-        }),
+    // Call OpenAI chat completions
+    const response = await fetch("https://api.openai.com/v1/chat/completions", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${process.env.OPENAI_API_KEY}`,
+      },
+      body: JSON.stringify({
+        model: "gpt-4.1-mini",
+        messages: [
+          { role: "system", content: SYSTEM_PROMPT.trim() },
+          ...(context
+            ? [{ role: "system", content: context }]
+            : []),
+          ...messages,
+        ],
+      }),
+    });
+
+    if (!response.ok) {
+      const text = await response.text();
+      console.error("OpenAI API returned error:", response.status, text);
+      return res.status(500).json({
+        error: `OpenAI API error: ${response.status}`,
+        details: text,
       });
-
-      if (!response.ok) {
-        const text = await response.text();
-        console.error("OpenAI API returned error:", response.status, text);
-        return res.status(500).json({ error: `OpenAI API error: ${response.status}`, details: text });
-      }
-
-      data = await response.json();
-    } catch (apiErr) {
-      console.error("Error calling OpenAI API:", apiErr);
-      return res.status(500).json({ error: "OpenAI API request failed", details: apiErr.message });
     }
 
-    res.json(data);
+    const data = await response.json();
+    return res.json(data);
   } catch (err) {
     console.error("Server error in /api/chat:", err);
-    res.status(500).json({ error: "Internal server error", details: err.message });
+    return res.status(500).json({
+      error: "Internal server error",
+      details: err.message,
+    });
   }
 });
 
-
-// At the bottom of server.js, before app.listen:
+// ===== Preload RAG_Info.txt on startup =====
 (async () => {
   try {
-    const filePath = path.resolve("./RAG_Info.txt");
+    const filePath = path.resolve(__dirname, "RAG_Info.txt");
     if (fs.existsSync(filePath)) {
       const text = fs.readFileSync(filePath, "utf-8");
 
-      const chunks = text
-        .split(/\n\s*\n|[\r\n]+/)
-        .filter((c) => c.trim().length);
+      // For this portfolio, embed the whole file as one document
+      const emb = await getEmbedding(text);
+      docs = [{ text, embedding: emb }];
 
-      for (let chunk of chunks) {
-        const emb = await getEmbedding(chunk);
-        docs.push({ text: chunk, embedding: emb });
-      }
-      console.log(`Preloaded ${chunks.length} chunks from ${filePath}`);
+      console.log(`✅ Preloaded RAG_Info.txt with 1 embedded document`);
+    } else {
+      console.warn(
+        "⚠️ RAG_Info.txt not found. The assistant will answer without grounded context."
+      );
     }
   } catch (err) {
-    console.error("Error ingesting file on startup:", err);
+    console.error("Error ingesting RAG_Info.txt on startup:", err);
   }
 })();
-
 
 app.listen(PORT, () => {
   console.log(`Backend running on http://localhost:${PORT}`);
