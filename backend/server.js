@@ -110,7 +110,7 @@ app.post("/api/chat", async (req, res) => {
           Authorization: `Bearer ${process.env.OPENAI_API_KEY}`,
         },
         body: JSON.stringify({
-          model: "gpt-3.5-turbo",
+          model: "gpt-4.1-mini",
           messages: [
             { role: "system", content: "You are Andrew's portfolio assistant. Use the provided context if relevant." },
             ...(context ? [{ role: "system", content: context }] : []),
@@ -142,19 +142,14 @@ app.post("/api/chat", async (req, res) => {
 // At the bottom of server.js, before app.listen:
 (async () => {
   try {
-    const filePath = path.resolve('./RAG_Info.txt'); // or example.txt
+    const filePath = path.resolve("./RAG_Info.txt");
     if (fs.existsSync(filePath)) {
-      const buffer = fs.readFileSync(path.resolve(filePath));
-      let text = "";
+      const text = fs.readFileSync(filePath, "utf-8");
 
-      if (filePath.endsWith(".pdf")) {
-        const parsed = await pdfParse(buffer);
-        text = parsed.text;
-      } else {
-        text = buffer.toString("utf-8");
-      }
+      const chunks = text
+        .split(/\n\s*\n|[\r\n]+/)
+        .filter((c) => c.trim().length);
 
-      const chunks = text.split(/\n\s*\n|[\r\n]+/).filter((c) => c.trim().length);
       for (let chunk of chunks) {
         const emb = await getEmbedding(chunk);
         docs.push({ text: chunk, embedding: emb });
